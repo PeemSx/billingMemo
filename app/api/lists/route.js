@@ -7,11 +7,14 @@ export async function POST(request) {
         const { lender,borrower, money, list } = await request.json();
         await connectMongoDB();
         const createdList = await List.create({ lender,borrower, money, list });
+        
         return NextResponse.json({ message: "List Created", data: createdList }, { status: 201 });
+        location.reload()
     } catch (error) {
         console.error("Error creating list:", error);
         return NextResponse.json({ message: "Error creating list", error }, { status: 500 });
     }
+    
 }
 
 export async function GET(){
@@ -24,3 +27,4 @@ export async function GET(){
         return NextResponse.json({ message: "Error getting  list", error }, { status: 500 });
     }
 }
+

@@ -27,6 +27,7 @@ const ListComponent = () => {
         
             const result = await response.json();
             console.log("Success:", result);
+            location.reload()
           } catch (error) {
             console.error("Error:", error);
           }
@@ -54,7 +55,7 @@ const ListComponent = () => {
     ));
 
     return (
-        <div className='flex justify-center space-y-4  text-center'>
+        <div className=' flex justify-center space-y-4  text-center'>
             <table className="table-auto">
                 <thead>
                     <tr className='bg-gray-800'>
